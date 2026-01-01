@@ -1,7 +1,7 @@
 import express from "express";
 import  cors  from "cors";
 import  sequelize  from "./config.js";
-import  getViajes  from "./controllers/viajeController.js";
+import  {getViajes , getSlug , getTestimoniales}  from "./controllers/viajeController.js";
 
 
 const app = express();
@@ -24,13 +24,6 @@ sequelize.authenticate()
 
 app.get('/api/viajes', getViajes);
 
-app.get('/api/testimoniales', (req, res) => {
-  const SQL_QUERY = 'SELECT * FROM testimoniales';
-  sequelize.query(SQL_QUERY, (err, resultado) => {
-    if (err) {
-      console.error('Error en la consulta:', err.message);
-      return res.status(500).json({ error: 'Error al obtener datos' });
-    }
-    res.json(resultado);
-  });
-});
+app.get('/api/viajes/:slug', getSlug);
+
+app.get('/api/testimoniales', getTestimoniales);
