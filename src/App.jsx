@@ -6,10 +6,12 @@ import Viajes from './pages/Viajes';
 import Testimoniales from './pages/Testimoniales';
 import MainLayout from './pages/layout/MainLayout';
 import DetalleViaje from './pages/DetalleViaje';
+import ErrorBoundary from "./ErrorBoundary";
 
 function App() {
   return (
-    <Routes>
+    <ErrorBoundary>
+      <Routes>
       <Route element={<MainLayout />}>
         <Route path="/" element={<Inicio />} />
         <Route path="/Nosotros" element={<Nosotros />} />
@@ -18,6 +20,8 @@ function App() {
         <Route path="/Testimoniales" element={<Testimoniales />} />
       </Route>
     </Routes>
+    </ErrorBoundary>
+    
   );
 }
 

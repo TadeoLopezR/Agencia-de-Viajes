@@ -1,21 +1,6 @@
-import { useState, useEffect } from 'react';
-
-
-function Viajes() {
-    const [data, setData] = useState([]);
-    useEffect(() => {
-    fetch('http://localhost:3000/api/viajes')
-      .then(res => res.json())
-      .then(data => setData(data));
-  }, []);
-  
+function ViajesComponente() {
     return(
-        <main className='container mt-5'>
-            <h1 className='mt-5 text-center'>Proximos Viajes</h1>
-            
-            <div className='row proximos-viajes'>
-                {data.map((viaje) => (
-                <div className='col-md-6 col-lg-4 mb-4' key={viaje.id}>
+         <div className='col-md-6 col-lg-4 mb-4' key={viaje.id}>
                         <div className='card'>
                            <img src={`/public/destinos_${viaje.img}.jpg`}  className='card-img-top' alt={viaje.titulo} />
                            <div className='card-body'> 
@@ -47,11 +32,8 @@ function Viajes() {
                                 <a href={`Viajes/${viaje.slug}`} className='btn btn-success btn-block'>Mas informacion</a>
                             </div>
                         </div>
-                </div>))}
-            </div>
-            
-        </main>
+                </div>
     )
 }
 
-export default Viajes
+export default ViajesComponente

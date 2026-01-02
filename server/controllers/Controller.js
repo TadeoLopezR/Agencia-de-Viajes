@@ -28,3 +28,13 @@ export const getTestimoniales = async (req, res) => {
     res.status(500).json({err:'Error al obtener datos'})
   }
 };
+
+export const postTestimoniales = async (req, res) => {
+  try {
+    const nuevoTestimonio  = await testimoniales.create(req.body);
+    res.status(201).json(nuevoTestimonio );
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message });
+  }
+}

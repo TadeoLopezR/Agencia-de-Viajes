@@ -1,11 +1,12 @@
 import imagen from "../../assets/logo.svg";
 import '../../css/bootstrap.css';
 import '../../css/style.css';   
-
+import { useLocation } from 'react-router-dom';
 
 function Header() {
+    const location = useLocation();
     return(
-        <header>
+        <header className={location.pathname === '/' ? 'home' : ''}>
             <div className="navegacion">
                 <div className="container">
                     <div className="row justify-content-center justify-content-md-between align-items-center py-4">
