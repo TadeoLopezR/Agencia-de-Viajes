@@ -1,6 +1,14 @@
-function ViajesComponente() {
+import { useLocation } from 'react-router-dom';
+
+function ListaViajes({ data }) {
+    const location = useLocation();
+    const limite = location.pathname === '/' ? 3 : data.length;
+    const viajes = data.slice(0, limite);
+
     return(
-         <div className='col-md-6 col-lg-4 mb-4' key={viaje.id}>
+          <div className='row proximos-viajes'>
+                {viajes.map((viaje) => (
+                <div className='col-md-6 col-lg-4 mb-4' key={viaje.id}>
                         <div className='card'>
                            <img src={`/public/destinos_${viaje.img}.jpg`}  className='card-img-top' alt={viaje.titulo} />
                            <div className='card-body'> 
@@ -32,8 +40,8 @@ function ViajesComponente() {
                                 <a href={`Viajes/${viaje.slug}`} className='btn btn-success btn-block'>Mas informacion</a>
                             </div>
                         </div>
-                </div>
-    )
-}
+                </div>))}
+            </div>
+            )}
 
-export default ViajesComponente
+export default ListaViajes

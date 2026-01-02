@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
+import ListaTestimoniales from "./components/ListaTestimoniales";
+
 
 function Testimoniales() {
 
-    const [data, setData] = useState([]);
+    const [comentarios, setComentario] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:3000/api/testimoniales')
           .then(res => res.json())
-          .then(data => setData(data));
+          .then(comentarios => setComentario(comentarios));
     }, []);
 
     //Formulario 
@@ -43,19 +45,7 @@ function Testimoniales() {
             <h1 className='mt-5 text-center'>Testimonios</h1>
             <blockquote className='text-center'>Lee sobre nuestros Clientes y sus <span>Experiencias</span></blockquote>
 
-            <div className='row testimoniales'> 
-                {data.map((testimonio) => (
-                <div className='col-md-6 col-lg-4 mb-4' key={testimonio.id}>
-                    <div className='card'>
-                        <div className='card-body'>
-                            <blockquote className='blockquote'>
-                                <p className='mb-0'>{testimonio.mensaje}</p>
-                            </blockquote>
-                            <footer className='blockquote-footer'>{testimonio.nombre}</footer>   
-                        </div>
-                    </div>
-                </div>))}
-            </div>
+            <ListaTestimoniales data={comentarios}/>
 
 
             <div className=''>

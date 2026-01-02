@@ -102,7 +102,7 @@ footer .nav a,
 
 .descuento {
     height: 400px;
-    background-image: linear-gradient( rgba(0, 0, 0, .5) 0%,  rgba(0, 0, 0, .5) 100%),  url(../img/cupon.jpg);
+    background-image: linear-gradient( rgba(0, 0, 0, .5) 0%,  rgba(0, 0, 0, .5) 100%),  url(../../public/cupon.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -115,7 +115,7 @@ footer .nav a,
             rgba(0, 0, 0, .5) 50%, 
             transparent 50%, 
             transparent 100%
-        ), url(../img/cupon.jpg);
+        ), url(../../public/cupon.jpg);
     }
 }
 .descuento .contenido {
@@ -150,7 +150,7 @@ i {
     font-weight: normal;
 }
 .testimoniales p::before {
-    background-image: url(../img/quote.jpg);
+    background-image: url(../../public/quote.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 40px;
@@ -165,4 +165,7 @@ i {
     color: #DC135F;
     font-weight: bold;
     margin-top: 1rem;
+}
+span{
+    color: #DC135F;
 }
