@@ -4,7 +4,7 @@ function Footer() {
     const year = new Date().getFullYear()
     return(
         <footer>
-            <div className="container pt-3">
+            <div className="container pt-5">
                 <div className="row">
                     <div className="col-md-6">
                         <nav className="nav footer justify-content-center justify-contentd-md-start">
@@ -16,7 +16,7 @@ function Footer() {
                     </div>
                     <div className="col">
                         <p className="copyright text-center text-md-right">
-                           | Todos los derechos reservados <span>{year}</span>
+                           | Todos los derechos reservados {year}
                         </p>
                             
                     </div>
